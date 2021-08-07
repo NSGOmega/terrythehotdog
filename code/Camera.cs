@@ -12,6 +12,16 @@ namespace Sandbox
 		private Angles orbitAngles;
 		private float orbitDistance = 150;
 
+
+		public void setFOV(float i)
+		{
+			FieldOfView = i;
+		}
+
+
+		 static public float minFOV = 90;
+		 static public float maxFOV = 150;
+
 		public override void Update()
 		{
 			var pawn = Local.Pawn as AnimEntity;
@@ -56,25 +66,12 @@ namespace Sandbox
 				Pos = targetPos;
 			}
 
-			if ( FieldOfView == 0 )
-			{
-				FieldOfView = 120;
-			}
+
+
+			FieldOfView = Input.Down( InputButton.Run ) ? FieldOfView.LerpTo( maxFOV, (Time.Delta * 15) , false ) : FieldOfView.LerpTo( minFOV, Time.Delta, false );
+
+
 			
-
-			if ( Input.Pressed( InputButton.Run ) )
-			{
-				Sound.FromEntity( "boost", pawn );
-				FieldOfView = 150;
-
-			}
-			else if ( Input.Released( InputButton.Run ) )
-				
-				{
-
-				FieldOfView = 120;
-
-				}
 
 			Viewer = null;
 		}

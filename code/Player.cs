@@ -67,6 +67,10 @@ namespace MinimalExample
 		/// <summary>
 		/// Called every tick, clientside and serverside.
 		/// </summary>
+
+		private Sound boostSound;
+		private Particles boostParticle;
+
 		public override void Simulate( Client cl )
 		{
 			base.Simulate( cl );
@@ -80,34 +84,49 @@ namespace MinimalExample
 			//
 			// If we're running serverside and Attack1 was just pressed, spawn a ragdoll
 			//
-			if ( IsClient && Input.Pressed( InputButton.Attack1 ) )
+
+			//
+			
+
+
+			if ( IsServer && Input.Pressed( InputButton.Attack1 ) )
 			{
 				var ragdoll = new ModelEntity();
 				ragdoll.SetModel( "models/citizen_props/hotdog01.vmdl_c" );
-				ragdoll.Position = EyePos + EyeRot.Forward * 40;
+				ragdoll.Position = EyePos + EyeRot.Forward * 100;
 				ragdoll.Rotation = Rotation.LookAt( Vector3.Random.Normal );
-				ragdoll.SetupPhysicsFromModel( PhysicsMotionType.Dynamic, false );
+				ragdoll.Scale = 1;
+				ragdoll.SetupPhysicsFromModel( PhysicsMotionType.Dynamic, true );
 				ragdoll.PhysicsGroup.Velocity = EyeRot.Forward * 1000;
+				ragdoll.DeleteAsync( 20 );
 
 			}
+
+			
 
 
 			if ( Input.Pressed( InputButton.Jump ))
 			{
 				Sound.FromEntity( "jump", this );
 
+
 			}
 
-			if (Input.Pressed( InputButton.Back ))
+			if ( Input.Pressed( InputButton.Back ))
 			{
 				Sound.FromEntity( "brake", this );
-			} 
+			}
 
-			if ( Input.Pressed( InputButton.Run ))
+			
+			if ( Input.Pressed( InputButton.Run ) )
 			{
-				Sound.FromEntity( "boost", this );
-				Particles.Create( "particles/boost.vpcf", Position ); SetParent(this);
+				boostSound = Sound.FromEntity( "boost", this );
+				boostParticle = Particles.Create( "particles/boost.vpcf", this, "root_IK" );
 
+			} else if ( Input.Released (InputButton.Run))
+			{
+				boostSound.Stop();
+				boostParticle?.Destroy();
 			}
 
 			

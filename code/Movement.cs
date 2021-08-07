@@ -14,13 +14,13 @@ namespace Sandbox
 	public class SonicMovement : BasePlayerController
 	{
 		public float SprintSpeed { get; set; } = 2000.0f;
-		public float WalkSpeed { get; set; } = 150.0f;
+		public float WalkSpeed { get; set; } = 600.0f;
 		public float DefaultSpeed { get; set; } = 500.0f;
 		public float Acceleration { get; set; } = 10.0f;
 		public float AirAcceleration { get; set; } = 50.0f;
 		public float FallSoundZ { get; set; } = -30.0f;
 		public float GroundFriction { get; set; } = 4.0f;
-		public float StopSpeed { get; set; } = 100.0f;
+		public float StopSpeed { get; set; } = 1000.0f;
 		public float Size { get; set; } = 2000.0f;
 		public float DistEpsilon { get; set; } = 0.03125f;
 		public float GroundAngle { get; set; } = 46.0f;
