@@ -125,7 +125,7 @@ namespace TerryTheHotDog
 
 			} else if ( Input.Released (InputButton.Run))
 			{
-			// Delete that shit when we're done
+			// Delete that shit when we're done with it
             	boostSound.Stop();
 				boostParticle?.Destroy();
 			}
