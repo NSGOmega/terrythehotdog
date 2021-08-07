@@ -1,14 +1,9 @@
-﻿
-using Sandbox;
-using Sandbox.UI.Construct;
-using System;
-using System.IO;
-using System.Threading.Tasks;
+﻿using Sandbox;
 
 //
 // You don't need to put things in a namespace, but it doesn't hurt.
 //
-namespace MinimalExample
+namespace TerryTheHotDog
 {
 
 	/// <summary>
@@ -18,9 +13,9 @@ namespace MinimalExample
 	/// You can use this to create things like HUDs and declare which player class
 	/// to use for spawned players.
 	/// </summary>
-	public partial class MinimalGame : Sandbox.Game
+	public partial class TerryTheHotDog : Sandbox.Game
 	{
-		public MinimalGame()
+		public TerryTheHotDog()
 		{
 			if ( IsServer )
 			{

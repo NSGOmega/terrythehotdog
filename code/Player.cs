@@ -2,7 +2,7 @@
 using System;
 using System.Linq;
 
-namespace MinimalExample
+namespace TerryTheHotDog
 {
 	partial class MinimalPlayer : Player
 	{

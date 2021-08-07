@@ -1,5 +1,6 @@
-﻿
-namespace Sandbox
+﻿using Sandbox;
+
+namespace TerryTheHotDog
 {
 	public class CustomCamera : Camera
 	{
