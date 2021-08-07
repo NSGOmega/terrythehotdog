@@ -88,7 +88,7 @@ namespace TerryTheHotDog
 			//
 			
 
-
+			// Hotdog shooter
 			if ( IsServer && Input.Pressed( InputButton.Attack1 ) )
 			{
 				var ragdoll = new ModelEntity();
@@ -103,7 +103,7 @@ namespace TerryTheHotDog
 			}
 
 			
-
+			// Sound effects
 
 			if ( Input.Pressed( InputButton.Jump ))
 			{
@@ -117,7 +117,7 @@ namespace TerryTheHotDog
 				Sound.FromEntity( "brake", this );
 			}
 
-			
+			// Boost and particle thing
 			if ( Input.Pressed( InputButton.Run ) )
 			{
 				boostSound = Sound.FromEntity( "boost", this );
@@ -125,7 +125,8 @@ namespace TerryTheHotDog
 
 			} else if ( Input.Released (InputButton.Run))
 			{
-				boostSound.Stop();
+			// Delete that shit when we're done
+            	boostSound.Stop();
 				boostParticle?.Destroy();
 			}
 

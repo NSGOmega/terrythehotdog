@@ -68,7 +68,7 @@ namespace TerryTheHotDog
 			}
 
 
-
+			// FOV SMOOTHING POG
 			FieldOfView = Input.Down( InputButton.Run ) ? FieldOfView.LerpTo( maxFOV, (Time.Delta * 15) , false ) : FieldOfView.LerpTo( minFOV, Time.Delta, false );
 
 
