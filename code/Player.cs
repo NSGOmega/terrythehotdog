@@ -11,6 +11,7 @@ namespace TerryTheHotDog
 
 			
 			SetModel( "models/citizen/citizen.vmdl" );
+			RenderColor = Color.Blue;
 			SetMaterialGroup( 4 );
 
 			// Clothing 
@@ -24,7 +25,7 @@ namespace TerryTheHotDog
 				shoes = new ModelEntity();
 				shoes.SetModel( model );
 				shoes.SetParent( this, true );
-				shoes.RenderColor = Color32.Red;
+				shoes.RenderColor = Color.Red;
 				shoes.EnableShadowInFirstPerson = true;
 				shoes.EnableHideInFirstPerson = true;
 				SetBodyGroup( "Feet", 1 );
